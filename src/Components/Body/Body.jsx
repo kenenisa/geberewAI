@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 function Body() {
   const [location, setLocation] = useState({});
-  const [address, setAddress] = useState('Searching...')
+  const [, setAddress] = useState('Searching...')
   function getCurrentLocation() {
     let notSent = true;
     navigator.geolocation.getCurrentPosition(async function (result) {
@@ -64,7 +64,8 @@ function Body() {
               </Stack>
               <Stack direction="row" spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
                 <Icon icon="carbon:location-filled" color="black" fontSize={20} />
-                <Typography color="black">{address}</Typography>
+                <Typography color="black">Kenenisa street, Addis Ababa, Ethiopia</Typography>
+
               </Stack>
             </Stack>
             <Box sx={{ position: 'absolute', bottom: 5, right: 5 }}>
@@ -74,7 +75,27 @@ function Body() {
           </Box>
 
           <Stack sx={{ pt: 5 }}>
+            <Typography variant="h5">Collections</Typography>
+            <Stack>
 
+              {
+                [
+                  { header: 'Best ways to grow a tomato with minimal water supply', date: '04 April' },
+                  { header: '5 Farming Tips and Trick...', date: '01 Sep' },
+                  { header: 'Best season to plant corn in my area', date: '01 Sep' },
+                ].map((item, i) => (
+                  <Box key={i} sx={{ my: 2 }}>
+                    <Stack direction="row">
+                      <Icon icon="mingcute:right-line" fontSize={30} />
+                      <Stack fullWidth>
+                        <Typography variant="h6" color="white">{item.header}</Typography>
+                        <Typography variant="subtitle1" color="gray">{item.date}</Typography>
+                      </Stack>
+                    </Stack>
+                  </Box>
+                ))
+              }
+            </Stack>
           </Stack>
         </Box>
       </Grid>
