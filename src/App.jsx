@@ -5,17 +5,20 @@ import Body from './Components/Body/Body';
 function App() {
   const theme = createTheme({
     palette: {
-      mode:'dark',
+      mode: 'dark',
       primary: {
         main: "#45DF7D",
       },
+      neutral: {
+        main: "#ddd"
+      }
     },
   });
   return (
     <>
-     <ThemeProvider theme={theme}>
-        <Body/>
-     </ThemeProvider> 
+      <ThemeProvider theme={theme}>
+        <Body />
+      </ThemeProvider>
     </>
   )
 }

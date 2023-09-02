@@ -1,4 +1,4 @@
-import { Box, Stack, TextField } from "@mui/material"
+import { Box, Container, Stack, TextField, Typography } from "@mui/material"
 import React from "react"
 import Conversation from "./Conversation/Conversation"
 
@@ -20,12 +20,20 @@ function Chat() {
     ]
     return (
         <Stack>
-            <Box sx={{ height: '90vh', overflowY: 'scroll', overflowX: 'hidden' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', pt: 2 }}>
+                <Stack direction="row" spacing={1}>
+                    <img src="items/ai.png" alt="ai image" />
+                    <Typography variant="h5" color="#64BD64">
+                        Geberew AI
+                    </Typography>
+                </Stack>
+            </Box>
+            <Box sx={{ height: '82vh', overflowY: 'scroll', overflowX: 'hidden' }}>
                 <Conversation list={list} />
             </Box>
-            <Box sx={{borderTop:'1px solid rgba(150,150,150,0.3)',pt:2,px:2}}>
+            <Container fixed sx={{ borderTop: '1px solid rgba(150,150,150,0.3)', pt: 2, px: 2, pb: 5 }}>
                 <TextField name="query" placeholder="Type whatever you want" fullWidth />
-            </Box>
+            </Container>
         </Stack>
     )
 }
