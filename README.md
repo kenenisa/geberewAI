@@ -19,19 +19,19 @@ Before you begin, ensure you have met the following requirements:
 
    ```shell
    git clone https://github.com/kenenisa/geberewAI.git
-```
+   ```
 
    ```shell
    cd geberewAI
-```
+   ```
 
    ```shell
    npm install
-```
+   ```
 
    ```shell
    npm run dev
-```
+   ```
 
 
 ## Features
