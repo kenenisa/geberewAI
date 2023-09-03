@@ -9,6 +9,7 @@ function Chat({ address }) {
     const base_url = 'https://geberew-backend.onrender.com'
     const handleSubmit = () => {
         if (input != "") {
+            const newList = [...list, { role: 'user', message: input }, { role: 'assistant', message: 'Generating...' }]
             fetch(base_url + '/query', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -17,9 +18,9 @@ function Chat({ address }) {
                     location: address
                 })
             }).then(e => e.json()).then(res => {
-                setList([...list, { role: 'assistant', message: res.openai.message[1].message }])
+                setList([...(newList.slice(0, -1)), { role: 'assistant', message: res.openai.message[1].message }])
             }).catch(console.log)
-            setList([...list, { role: 'user', message: input }, { role: 'assistant', message: 'Generating...' }])
+            setList(newList)
             setInput("")
         }
     }

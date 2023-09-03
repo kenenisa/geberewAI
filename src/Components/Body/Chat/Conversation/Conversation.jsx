@@ -43,14 +43,8 @@ function Conversation({ list }) {
                 </Box>
             ))}
             {list.length ?
-                <Box sx={{ display: "flex", justifyContent: 'center', py: 3 }}>
-                    <Button
-                        variant="outlined"
-                        color="neutral"
-                        startIcon={<Icon icon="typcn:refresh-outline" />}
-                    >Regenerate response</Button>
-                </Box>
-                : "Results will be here..."}
+                ''
+                : "Results appear here..."}
         </Container>
     )
 }
