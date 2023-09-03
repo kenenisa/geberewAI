@@ -13,6 +13,11 @@ Before you begin, ensure you have met the following requirements:
 - Node.js and npm installed on your development environment.
 - Access to the Geberew AI backend API (not included in this repository).
 
+### Description
+- `data.jsonl` is the data we generated to train our model
+- `gpt_llm_trainer.ipynb` is the notebook we used to experiment and develop our model
+- `Training on Google vertexAI.png` is a screenshot of our model being trained on GCP vertexAI
+
 ### Installation
 
 1. Clone this repository:
