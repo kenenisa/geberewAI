@@ -43,7 +43,7 @@ function Body() {
       <Grid item xs={12} md={3} sx={{ borderRight: '1px solid rgba(150,150,150,0.3)' }}>
         <Box sx={{ px: 3 }}>
           <Box sx={{
-            backgroundImage: "url('/items/sunny.png')", width: '100%', height: '15vh', backgroundPosition: 'center',
+            backgroundImage: "url('items/sunny.png')", width: '100%', height: '15vh', backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             borderRadius: '15px',
