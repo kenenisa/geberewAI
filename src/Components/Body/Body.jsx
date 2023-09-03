@@ -5,27 +5,22 @@ import { useEffect, useState } from "react"
 
 function Body() {
   const [location, setLocation] = useState({});
-  const [, setAddress] = useState('Searching...')
+  const [address, setAddress] = useState('Searching...')
   function getCurrentLocation() {
     let notSent = true;
     navigator.geolocation.getCurrentPosition(async function (result) {
       console.log({ result });
       const { latitude, longitude } = result.coords
       setLocation({ latitude, longitude })
-      const url = `https://address-from-to-latitude-longitude.p.rapidapi.com/geolocationapi?lat=${latitude}&lng=${longitude}`;
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': 'ed7866a312msh0bafdc03242c636p1dd977jsn1836849ee767',
-          'X-RapidAPI-Host': 'address-from-to-latitude-longitude.p.rapidapi.com'
-        }
-      };
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyA0vqxmDG9dfZptEmDuj4sblLPxXFTatx8
+      `
+     
       if (notSent) {
         notSent = false;
         try {
-          const response = await fetch(url, options);
+          const response = await fetch(url);
           const result = await response.json();
-          setAddress(result.Results[0].address)
+          setAddress(result.results[0].formatted_address)
         } catch (error) {
           console.error(error);
         }
@@ -64,7 +59,7 @@ function Body() {
               </Stack>
               <Stack direction="row" spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
                 <Icon icon="carbon:location-filled" color="black" fontSize={20} />
-                <Typography color="black">Kenenisa street, Addis Ababa, Ethiopia</Typography>
+                <Typography color="black">{address}</Typography>
 
               </Stack>
             </Stack>
@@ -100,7 +95,7 @@ function Body() {
         </Box>
       </Grid>
       <Grid item xs={12} md={9}>
-        <Chat />
+        <Chat address={address}/>
       </Grid>
       {/* <Grid item xs={12} md={3} sx={{ borderLeft: '1px solid rgba(150,150,150,0.3)'}}>
 

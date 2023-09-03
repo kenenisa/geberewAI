@@ -26,8 +26,7 @@ function AssistantCard({ item }) {
             </Box>
             <Stack>
                 <Card elevation={6} sx={{ borderRadius: 3 }}>
-                    <CardContent>
-                        {item.message}
+                    <CardContent dangerouslySetInnerHTML={{ __html: item.message }}>
                     </CardContent>
                 </Card>
 
@@ -43,13 +42,15 @@ function Conversation({ list }) {
                     {item.role == 'user' ? <UserCard item={item} /> : <AssistantCard item={item} />}
                 </Box>
             ))}
-            <Box sx={{ display: "flex", justifyContent: 'center', py: 3 }}>
-                <Button
-                    variant="outlined"
-                    color="neutral"
-                    startIcon={<Icon icon="typcn:refresh-outline" />}
-                >Regenerate response</Button>
-            </Box>
+            {list.length ?
+                <Box sx={{ display: "flex", justifyContent: 'center', py: 3 }}>
+                    <Button
+                        variant="outlined"
+                        color="neutral"
+                        startIcon={<Icon icon="typcn:refresh-outline" />}
+                    >Regenerate response</Button>
+                </Box>
+                : "Results will be here..."}
         </Container>
     )
 }
